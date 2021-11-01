@@ -935,7 +935,7 @@ contract Hero is Context, IERC20, Ownable {
     }
 
     constructor() public {
-        _balances[address(this)] = _tTotal;
+        _balances[owner()] = _tTotal;
         IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(uniswapRouterAddress);
         // Create a uniswap pair for this new token
         address uniswapAddress = IUniswapV2Factory(_uniswapV2Router.factory()).createPair(address(this), _uniswapV2Router.WETH());
